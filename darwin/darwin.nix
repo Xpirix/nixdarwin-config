@@ -6,7 +6,6 @@
   environment.systemPackages =
     [
       pkgs.home-manager
-      pkgs.vscode
     ];
 
   # Use a custom configuration.nix location.
@@ -24,9 +23,10 @@
   security.pam.enableSudoTouchIdAuth = true;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
-  # programs = {
-  #   zsh.enable = true;  # default shell on catalina
-  # };
+  programs = {
+    gnupg.agent.enable = true;
+    zsh.enable = true;  # default shell on catalina
+  };
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
@@ -39,6 +39,7 @@
     nerd-fonts.caskaydia-cove
   ];
 
+  # Services
   services = {
     nix-daemon.enable = true;
   };
@@ -49,8 +50,17 @@
     casks = [
       "iterm2"
       "orbstack"
+      "firefox"
+      "google-chrome"
+      "pgadmin4"
+      "tor-browser"
     ];
+
+    # Apple Store Apps defined with ID
+    masApps = {
+      "Orbot" = 1609461599;
+    };
   };
-  
+
 
 }

@@ -2,12 +2,9 @@
 
 {
   imports = [
-    # ./git.nix
     ./helix.nix
-    # ./nvim
     ./starship.nix
-    ./tmux.nix
-    ./wezterm.nix
+    ./vscode.nix
   ];
 
   home = {
@@ -19,36 +16,21 @@
 
     ];
 
-    # Home Manager is pretty good at managing dotfiles. The primary way to manage
-    # plain files is through 'home.file'.
-    # file = {
-    #   hammerspoon = lib.mkIf pkgs.stdenvNoCC.isDarwin {
-    #     source = ./../.config/hammerspoon;
-    #     target = ".hammerspoon";
-    #     recursive = true;
-    #   };
-    #   kanata = lib.mkIf pkgs.stdenvNoCC.isDarwin {
-    #     source = ./../.config/kanata;
-    #     target = "./.config/kanata";
-    #     recursive = true;
-    #   };
-    #   ghostty = {
-    #     source = ./../.config/ghostty;
-    #     target = "./.config/ghostty";
-    #     recursive = true;
-    #   };
-    # };
-
     sessionVariables = {
     };
   };
+
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
   programs = {
     fish = {
       enable = true;
       interactiveShellInit = ''
-        set fish_greeting "Hello world! 😂"
-        alias brew="/opt/homebrew/bin/brew"
+      set fish_greeting "Hello world! 😂"
+      set -gx PATH /run/current-system/sw/bin $PATH
+      set -gx PATH /opt/homebrew/bin $PATH
       '';
     };
 
@@ -57,6 +39,5 @@
       nix-direnv.enable = true;
     };
 
-    # jujutsu.enable = true;
   };
 }
