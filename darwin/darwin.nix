@@ -54,11 +54,13 @@
       "google-chrome"
       "pgadmin4"
       "tor-browser"
+      "aldente"
     ];
 
     # Apple Store Apps defined with ID
     masApps = {
       "Orbot" = 1609461599;
+      "Tailscale" = 1475387142;
     };
   };
 
