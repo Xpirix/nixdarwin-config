@@ -55,6 +55,7 @@
       "pgadmin4"
       "tor-browser"
       "aldente"
+      "chatgpt"
     ];
 
     # Apple Store Apps defined with ID
