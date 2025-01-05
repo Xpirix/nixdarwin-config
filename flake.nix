@@ -1,5 +1,5 @@
 {
-  description = "Evan's Nix System Configuration";
+  description = "Xpirix's Nix System Configuration";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager = {
@@ -10,19 +10,16 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     flake-utils.url = "github:numtide/flake-utils";
   };
   outputs = {
     nixpkgs,
     darwin,
     home-manager,
-    nixos-wsl,
     ...
   } @ inputs: let
+    system = "aarch64-darwin";
+    pkgs = import nixpkgs { inherit system; };
     darwinSystem = {user, arch ? "aarch64-darwin"}:
       darwin.lib.darwinSystem {
         system = arch;
@@ -34,37 +31,21 @@
             home-manager = {
               users.${user} = import ./home-manager;
             };
-            users.users.${user}.home = "/Users/${user}";
+            users.users.${user} = {
+              home = "/Users/${user}";
+            };
             nix.settings.trusted-users = [ user ];
+            nixpkgs.config.allowUnfree = true;
+
           }
         ];
       };
   in
   {
-    nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          nixos-wsl.nixosModules.wsl
-          ./nixos/configuration.nix
-          ./.config/wsl
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              users.nixos = import ./home-manager;
-            };
-            nix.settings.trusted-users = [ "nixos" ];
-          }
-        ];
-      };
-    };
     darwinConfigurations = {
-      "G2157QVFX1" = darwinSystem {
-        user = "etravers";
-      };
-      "Evans-MacBook-Pro" = darwinSystem {
-        user = "evan";
-        arch = "x86_64-darwin";
+      "MacBook-M1-Pro" = darwinSystem {
+        user = "xpirix";
+        arch = "aarch64-darwin";
       };
     };
   };

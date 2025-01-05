@@ -2,9 +2,9 @@
 
 {
   imports = [
-    ./git.nix
+    # ./git.nix
     ./helix.nix
-    ./nvim
+    # ./nvim
     ./starship.nix
     ./tmux.nix
     ./wezterm.nix
@@ -16,34 +16,28 @@
     # The home.packages option allows you to install Nix packages into your
     # environment.
     packages = with pkgs; [
-      amber
-      devenv
-      markdown-oxide
-      nixd
-      ollama
-      ripgrep
-      smartcat
+
     ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
     # plain files is through 'home.file'.
-    file = {
-      hammerspoon = lib.mkIf pkgs.stdenvNoCC.isDarwin {
-        source = ./../.config/hammerspoon;
-        target = ".hammerspoon";
-        recursive = true;
-      };
-      kanata = lib.mkIf pkgs.stdenvNoCC.isDarwin {
-        source = ./../.config/kanata;
-        target = "./.config/kanata";
-        recursive = true;
-      };
-      ghostty = {
-        source = ./../.config/ghostty;
-        target = "./.config/ghostty";
-        recursive = true;
-      };
-    };
+    # file = {
+    #   hammerspoon = lib.mkIf pkgs.stdenvNoCC.isDarwin {
+    #     source = ./../.config/hammerspoon;
+    #     target = ".hammerspoon";
+    #     recursive = true;
+    #   };
+    #   kanata = lib.mkIf pkgs.stdenvNoCC.isDarwin {
+    #     source = ./../.config/kanata;
+    #     target = "./.config/kanata";
+    #     recursive = true;
+    #   };
+    #   ghostty = {
+    #     source = ./../.config/ghostty;
+    #     target = "./.config/ghostty";
+    #     recursive = true;
+    #   };
+    # };
 
     sessionVariables = {
     };
@@ -53,8 +47,8 @@
     fish = {
       enable = true;
       interactiveShellInit = ''
-        set fish_greeting # N/A
-        bind \cw backward-kill-word
+        set fish_greeting "Hello world! 😂"
+        alias brew="/opt/homebrew/bin/brew"
       '';
     };
 
@@ -63,6 +57,6 @@
       nix-direnv.enable = true;
     };
 
-    jujutsu.enable = true;
+    # jujutsu.enable = true;
   };
 }
