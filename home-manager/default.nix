@@ -31,6 +31,8 @@
       set fish_greeting "Hello world! 😂"
       set -gx PATH /run/current-system/sw/bin $PATH
       set -gx PATH /opt/homebrew/bin $PATH
+      set -gx PATH /opt/local/bin $PATH
+      alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
       '';
     };
 

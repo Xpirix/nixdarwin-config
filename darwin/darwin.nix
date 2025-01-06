@@ -56,12 +56,14 @@
       "tor-browser"
       "aldente"
       "chatgpt"
+      "vlc"
     ];
 
     # Apple Store Apps defined with ID
     masApps = {
       "Orbot" = 1609461599;
       "Tailscale" = 1475387142;
+      "WhatsApp" = 310633997;
     };
   };
 
