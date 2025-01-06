@@ -33,6 +33,7 @@
       set -gx PATH /opt/homebrew/bin $PATH
       set -gx PATH /opt/local/bin $PATH
       alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+      set -gx PATH /Users/xpirix/.nix-profile/bin $PATH
       '';
     };
 
