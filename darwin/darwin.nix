@@ -57,6 +57,10 @@
       "aldente"
       "chatgpt"
       "vlc"
+      "flameshot"
+      "obs"
+      # Needs rosetta
+      "qgis"
     ];
 
     # Apple Store Apps defined with ID
