@@ -59,8 +59,16 @@
       "vlc"
       "flameshot"
       "obs"
+      "element"
+      "warp"
+      "grammarly-desktop"
+      "gimp"
       # Needs rosetta
       "qgis"
+    ];
+
+    brews = [
+      "node"
     ];
 
     # Apple Store Apps defined with ID

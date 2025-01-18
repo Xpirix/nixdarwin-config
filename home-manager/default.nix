@@ -5,6 +5,7 @@
     ./helix.nix
     ./starship.nix
     ./vscode.nix
+    ./nvim
   ];
 
   home = {
