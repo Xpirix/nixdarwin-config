@@ -15,6 +15,7 @@
     # environment.
     packages = with pkgs; [
       python313
+      hugo
     ];
 
     sessionVariables = {

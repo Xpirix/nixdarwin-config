@@ -63,6 +63,7 @@
       "warp"
       "grammarly-desktop"
       "gimp"
+      "libreoffice"
       # Needs rosetta
       "qgis"
     ];
