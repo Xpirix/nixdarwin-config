@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -6,6 +6,7 @@
     ./starship.nix
     ./vscode.nix
     ./nvim
+    ./deepseek.nix
   ];
 
   home = {
@@ -16,6 +17,7 @@
     packages = with pkgs; [
       python313
       hugo
+      inputs.deepseek.packages.${pkgs.system}.default
     ];
 
     sessionVariables = {
@@ -36,6 +38,7 @@
       set -gx PATH /opt/local/bin $PATH
       alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
       set -gx PATH /Users/xpirix/.nix-profile/bin $PATH
+      set -gx PATH /Users/xpirix/.local/bin $PATH
       '';
     };
 

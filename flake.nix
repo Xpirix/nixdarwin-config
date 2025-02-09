@@ -11,6 +11,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
+    deepseek.url = "github:lucernae/nix-config?dir=process-compose/llm/deepseek-r1";
   };
   outputs = {
     nixpkgs,
@@ -29,7 +30,9 @@
           {
             _module.args = { inherit inputs; };
             home-manager = {
-              users.${user} = import ./home-manager;
+              users.${user} = import ./home-manager {
+                inherit inputs pkgs;
+              };
             };
             users.users.${user} = {
               home = "/Users/${user}";
