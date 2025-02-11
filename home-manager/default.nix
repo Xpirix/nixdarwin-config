@@ -18,6 +18,7 @@
       python313
       hugo
       inputs.deepseek.packages.${pkgs.system}.default
+      devbox
     ];
 
     sessionVariables = {
