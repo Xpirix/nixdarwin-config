@@ -64,6 +64,7 @@
       "grammarly-desktop"
       "gimp"
       "libreoffice"
+      "licecap"
       # Needs rosetta
       "qgis"
     ];
