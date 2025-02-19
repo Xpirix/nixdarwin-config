@@ -39,11 +39,6 @@
     nerd-fonts.caskaydia-cove
   ];
 
-  # Services
-  services = {
-    nix-daemon.enable = true;
-  };
-
   homebrew = {
     enable = true;
 
