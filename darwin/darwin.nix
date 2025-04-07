@@ -20,7 +20,7 @@
     };
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
+  # security.pam.enableSudoTouchIdAuth = true;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs = {
@@ -60,8 +60,7 @@
       "gimp"
       "libreoffice"
       "licecap"
-      # Needs rosetta
-      "qgis"
+      "tomatobar"
     ];
 
     brews = [
