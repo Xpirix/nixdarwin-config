@@ -19,6 +19,7 @@
       hugo
       inputs.deepseek.packages.${pkgs.system}.default
       devbox
+      act
     ];
 
     sessionVariables = {

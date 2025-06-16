@@ -20,7 +20,7 @@
     };
   };
 
-  # security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs = {
@@ -61,10 +61,12 @@
       "libreoffice"
       "licecap"
       "tomatobar"
+      "postman"
     ];
 
     brews = [
       "node"
+      "gnupg"
     ];
 
     # Apple Store Apps defined with ID
