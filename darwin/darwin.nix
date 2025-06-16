@@ -67,6 +67,7 @@
     brews = [
       "node"
       "gnupg"
+      "pinentry-mac"
     ];
 
     # Apple Store Apps defined with ID
