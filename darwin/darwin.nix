@@ -32,6 +32,8 @@
   # $ darwin-rebuild changelog
   system.stateVersion = 5;
 
+  system.primaryUser = "xpirix";
+
   fonts.packages = with pkgs; [
     atkinson-hyperlegible
     jetbrains-mono
@@ -62,10 +64,12 @@
       "licecap"
       "tomatobar"
       "postman"
+      "maccy"
     ];
 
     brews = [
       "node"
+      # For commit signing
       "gnupg"
       "pinentry-mac"
     ];
