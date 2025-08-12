@@ -69,6 +69,7 @@
 
     brews = [
       "node"
+      "restic"
       # For commit signing
       "gnupg"
       "pinentry-mac"
